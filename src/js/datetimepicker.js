@@ -13,6 +13,8 @@
  *    @since        2013-Jul-8
  */
 
+(function() {
+    function datetimepicker(angular, moment) {
 angular.module('ui.bootstrap.datetimepicker', [])
   .constant('dateTimePickerConfig', {
     startView: 'day',
@@ -331,3 +333,10 @@ angular.module('ui.bootstrap.datetimepicker', [])
       }
     };
   }]);
+    }
+if (typeof define === 'function' && define.amd) {
+    define('angular-bootstrap-datetimepicker', ['angular', 'moment'], datetimepicker);
+} else {
+    datetimepicker(angular, window.moment);
+}
+})();
